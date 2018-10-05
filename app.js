@@ -24,10 +24,11 @@ function getWords () {
 getWords();
 
 function countdown ( num, callback ) {
-    setInterval( () => {
+    let interval = setInterval( () => {
         num--;
-        if ( num === 1 ) {
+        if ( num < 1 ) {
             callback();
+            clearInterval( interval );
         }
     }, 1000 );
 }
